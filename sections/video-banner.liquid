@@ -1,4 +1,4 @@
-<section class="video-banner-{{ section.id }}">
+<section id="video-banner-{{ section.id }}" class="video-banner">
   <div class="video-container">
     {% if section.settings.video_source == 'shopify' and section.settings.banner_video != blank %}
       {{ section.settings.banner_video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
