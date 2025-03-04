@@ -1,4 +1,4 @@
-<section class="full-banner">
+{% comment %} <section class="full-banner">
     {% if section.settings.banner_type == "image" %}
         <div class="banner-bg" style="background-image: url('{{ section.settings.banner_image | image_url }}');"></div>
     {% else %}
@@ -134,4 +134,7 @@
     margin-top: 10px;
     opacity: 0.9;
 }
-</style>
+</style> {% endcomment %}
+<section>
+    <p>Banner Type: {{ section.settings.banner_type }}</p>
+</section>
