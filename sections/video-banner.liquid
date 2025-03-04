@@ -1,9 +1,6 @@
 <section class="video-banner">
     {% if section.settings.video_source == "shopify" and section.settings.banner_video != blank %}
-        <video class="video-bg" autoplay loop muted playsinline>
-            <source src="{{ section.settings.banner_video | file_url }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        {{section.settings.banner_video | video_tag: autoplay:true}}
     {% elsif section.settings.video_source == "youtube" and section.settings.youtube_url != blank %}
         <iframe class="video-bg" src="https://www.youtube.com/embed/{{ section.settings.youtube_url | split: 'v=' | last }}?autoplay=1&mute=1&loop=1&controls=0&playlist={{ section.settings.youtube_url | split: 'v=' | last }}" frameborder="0" allowfullscreen></iframe>
     {% elsif section.settings.video_source == "vimeo" and section.settings.vimeo_url != blank %}
