@@ -1,0 +1,145 @@
+<section class="video-banner">
+    {% if section.settings.video_source == "shopify" and section.settings.banner_video != blank %}
+        <video class="video-bg" autoplay loop muted playsinline>
+            <source src="{{ section.settings.banner_video | file_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    {% elsif section.settings.video_source == "youtube" and section.settings.youtube_url != blank %}
+        <iframe class="video-bg" src="https://www.youtube.com/embed/{{ section.settings.youtube_url | split: 'v=' | last }}?autoplay=1&mute=1&loop=1&controls=0&playlist={{ section.settings.youtube_url | split: 'v=' | last }}" frameborder="0" allowfullscreen></iframe>
+    {% elsif section.settings.video_source == "vimeo" and section.settings.vimeo_url != blank %}
+        <iframe class="video-bg" src="https://player.vimeo.com/video/{{ section.settings.vimeo_url | split: '/' | last }}?autoplay=1&muted=1&loop=1&background=1" frameborder="0" allowfullscreen></iframe>
+    {% else %}
+        <div class="video-placeholder">No video selected</div>
+    {% endif %}
+
+    <div class="overlay"></div>
+
+    <div class="video-banner-content">
+        <h2 class="video-banner-subtitle">{{ section.settings.subtitle }}</h2>
+        <h1 class="video-banner-title">{{ section.settings.title }}</h1>
+        <p class="video-banner-description">{{ section.settings.description }}</p>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Video Banner",
+  "settings": [
+    {
+      "type": "select",
+      "id": "video_source",
+      "label": "Video Source",
+      "options": [
+        { "value": "shopify", "label": "Upload MP4 (Shopify Files)" },
+        { "value": "youtube", "label": "YouTube URL" },
+        { "value": "vimeo", "label": "Vimeo URL" }
+      ],
+      "default": "shopify"
+    },
+    {
+      "type": "video",
+      "id": "banner_video",
+      "label": "Upload MP4 Video",
+      "info": "Upload an MP4 file in Shopify's Settings > Files."
+    },
+    {
+      "type": "text",
+      "id": "youtube_url",
+      "label": "YouTube Video URL",
+      "info": "Paste the full YouTube video link."
+    },
+    {
+      "type": "text",
+      "id": "vimeo_url",
+      "label": "Vimeo Video URL",
+      "info": "Paste the full Vimeo video link."
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Your Subtitle Here"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Shop the latest collections with amazing discounts."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Banner",
+      "category": "Video"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.video-banner {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.video-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.video-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 80%;
+}
+
+.video-banner-title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.video-banner-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.video-banner-description {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+</style>

@@ -1,141 +1,90 @@
-{% comment %} <section class="full-banner">
-    {% if section.settings.banner_type == "image" %}
-        <div class="banner-bg" style="background-image: url('{{ section.settings.banner_image | image_url }}');"></div>
-    {% else %}
-        <video class="banner-bg-video" autoplay loop muted playsinline>
-            <source src="{{ section.settings.banner_video | file_url }}" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    {% endif %}
-
-    <div class="overlay"></div>
-
-    <div class="banner-content">
-        <h2 class="banner-subtitle">{{ section.settings.subtitle }}</h2>
-        <h1 class="banner-title">{{ section.settings.title }}</h1>
-        <p class="banner-description">{{ section.settings.description }}</p>
-    </div>
-</section> {% endcomment %}
-<section>
-    <p>Banner Type: {{ section.settings.banner_type }}</p>
+<section class="full-banner" 
+    style="background-image: url('{{ section.settings.banner_image | image_url }}');">
+<div class="overlay"></div>
+<div class="banner-content">
+   <h2 class="banner-subtitle">{{ section.settings.subtitle }}</h2>
+   <h1 class="banner-title">{{ section.settings.title }}</h1>
+   <p class="banner-description">{{ section.settings.description }}</p>
+</div>
 </section>
-
 
 {% schema %}
 {
-  "name": "Banner",
-  "settings": [
-    {
-      "type": "select",
-      "id": "banner_type",
-      "label": "Background Type",
-      "options": [
-        {
-          "value": "image",
-          "label": "Image"
-        },
-        {
-          "value": "video",
-          "label": "Video"
-        }
-      ],
-      "default": "image"
-    },
-    {
-      "type": "image_picker",
-      "id": "banner_image",
-      "label": "Banner Image",
-      "info": "Upload a high-quality image."
-    },
-    {
-      "type": "video",
-      "id": "banner_video",
-      "label": "Banner Video",
-      "info": "Upload an MP4 video file."
-    },
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Your Subtitle Here"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Welcome to Our Store"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Shop the latest collections with amazing discounts."
-    }
-  ],
-  "presets": [
-    {
-      "name": "Full-Width Banner",
-      "category": "Image"
-    }
-  ]
+"name": "Banner",
+"settings": [
+{
+ "type": "image_picker",
+ "id": "banner_image",
+ "label": "Banner Image"
+},
+{
+ "type": "text",
+ "id": "subtitle",
+ "label": "Subtitle",
+ "default": "Your Subtitle Here"
+},
+{
+ "type": "text",
+ "id": "title",
+ "label": "Title",
+ "default": "Welcome to Our Store"
+},
+{
+ "type": "textarea",
+ "id": "description",
+ "label": "Description",
+ "default": "Shop the latest collections with amazing discounts."
+}
+],
+"presets": [
+{
+ "name": "Full-Width Banner",
+}
+]
 }
 {% endschema %}
 
 <style>
 .full-banner {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-.banner-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.banner-bg-video {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+position: relative;
+width: 100vw;
+height: 100vh;
+background-size: cover;
+background-position: center;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: white;
 }
 
 .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+position: absolute;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
 }
 
 .banner-content {
-    position: relative;
-    z-index: 2;
-    max-width: 80%;
+position: relative;
+z-index: 2;
+max-width: 80%;
+text-align: left;
 }
 
 .banner-title {
-    font-size: 3rem;
-    font-weight: bold;
+font-size: 3rem;
+font-weight: bold;
 }
 
 .banner-subtitle {
-    font-size: 1.5rem;
-    opacity: 0.8;
+font-size: 1.5rem;
+opacity: 0.8;
 }
 
 .banner-description {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    opacity: 0.9;
+font-size: 1.2rem;
+margin-top: 10px;
+opacity: 0.9;
 }
 </style>
