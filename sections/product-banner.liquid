@@ -15,7 +15,11 @@
         <h1 class="banner-title">{{ section.settings.title }}</h1>
         <p class="banner-description">{{ section.settings.description }}</p>
     </div>
+</section> {% endcomment %}
+<section>
+    <p>Banner Type: {{ section.settings.banner_type }}</p>
 </section>
+
 
 {% schema %}
 {
@@ -134,7 +138,4 @@
     margin-top: 10px;
     opacity: 0.9;
 }
-</style> {% endcomment %}
-<section>
-    <p>Banner Type: {{ section.settings.banner_type }}</p>
-</section>
+</style>
