@@ -1,21 +1,33 @@
-<section class="video-banner">
-    {% if section.settings.video_source == "shopify" and section.settings.banner_video != blank %}
-        {{section.settings.banner_video | video_tag: autoplay:true}}
-    {% elsif section.settings.video_source == "youtube" and section.settings.youtube_url != blank %}
-        <iframe class="video-bg" src="https://www.youtube.com/embed/{{ section.settings.youtube_url | split: 'v=' | last }}?autoplay=1&mute=1&loop=1&controls=0&playlist={{ section.settings.youtube_url | split: 'v=' | last }}" frameborder="0" allowfullscreen></iframe>
-    {% elsif section.settings.video_source == "vimeo" and section.settings.vimeo_url != blank %}
-        <iframe class="video-bg" src="https://player.vimeo.com/video/{{ section.settings.vimeo_url | split: '/' | last }}?autoplay=1&muted=1&loop=1&background=1" frameborder="0" allowfullscreen></iframe>
+<section class="video-banner-{{ section.id }}">
+  <div class="video-container">
+    {% if section.settings.video_source == 'shopify' and section.settings.banner_video != blank %}
+      {{ section.settings.banner_video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+    {% elsif section.settings.video_source == 'youtube' and section.settings.youtube_url != blank %}
+      <iframe
+        class="video-bg"
+        src="https://www.youtube.com/embed/{{ section.settings.youtube_url | split: 'v=' | last }}?autoplay=1&mute=1&loop=1&controls=0&playlist={{ section.settings.youtube_url | split: 'v=' | last }}"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    {% elsif section.settings.video_source == 'vimeo' and section.settings.vimeo_url != blank %}
+      <iframe
+        class="video-bg"
+        src="https://player.vimeo.com/video/{{ section.settings.vimeo_url | split: '/' | last }}?autoplay=1&muted=1&loop=1&background=1"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
     {% else %}
-        <div class="video-placeholder">No video selected</div>
+      <div class="video-placeholder">No video selected</div>
     {% endif %}
+  </div>
 
-    <div class="overlay"></div>
+  <div class="overlay"></div>
 
-    <div class="video-banner-content">
-        <h2 class="video-banner-subtitle">{{ section.settings.subtitle }}</h2>
-        <h1 class="video-banner-title">{{ section.settings.title }}</h1>
-        <p class="video-banner-description">{{ section.settings.description }}</p>
-    </div>
+  <div class="video-banner-content">
+    <h2 class="video-banner-subtitle">{{ section.settings.subtitle }}</h2>
+    <h1 class="video-banner-title">{{ section.settings.title }}</h1>
+    <p class="video-banner-description">{{ section.settings.description }}</p>
+  </div>
 </section>
 
 {% schema %}
@@ -80,7 +92,7 @@
 {% endschema %}
 
 <style>
-.video-banner {
+  .video-banner {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -90,16 +102,16 @@
     justify-content: center;
     text-align: center;
     color: white;
-}
+  }
 
-.video-bg {
+  .video-bg {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+  }
 
-.video-placeholder {
+  .video-placeholder {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -109,34 +121,34 @@
     justify-content: center;
     color: white;
     font-size: 2rem;
-}
+  }
 
-.overlay {
+  .overlay {
     position: absolute;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-}
+  }
 
-.video-banner-content {
+  .video-banner-content {
     position: relative;
     z-index: 2;
     max-width: 80%;
-}
+  }
 
-.video-banner-title {
+  .video-banner-title {
     font-size: 3rem;
     font-weight: bold;
-}
+  }
 
-.video-banner-subtitle {
+  .video-banner-subtitle {
     font-size: 1.5rem;
     opacity: 0.8;
-}
+  }
 
-.video-banner-description {
+  .video-banner-description {
     font-size: 1.2rem;
     margin-top: 10px;
     opacity: 0.9;
-}
+  }
 </style>
