@@ -1,19 +1,18 @@
 {% layout 'page' %}
 
-<div class="product-detail-page">
-  <!-- Image Banner -->
-  <div class="image-banner">
-    <img src="{{ 'your-image-banner.jpg' | asset_url }}" alt="Image Banner" style="width: 100%; height: auto;">
-  </div>
+<div class="custom-page">
+  <!-- Hero Section -->
+  {% section 'hero-carousel' %}
 
-  <!-- Video Banner -->
-  <div class="video-banner" style="text-align: center; margin: 20px 0;">
-    <iframe width="100%" height="500" src="https://www.youtube.com/embed/your-video-id" frameborder="0" allowfullscreen></iframe>
-  </div>
+  <!-- Image Banner Section -->
+  {% section 'product-banner' %}
 
-  <!-- Additional Content -->
-  <div class="content">
-    <h1>Product Details</h1>
-    <p>Here you can add more details about the product.</p>
-  </div>
+  <!-- Video Banner Section -->
+  {% section 'video-banner' %}
+
+  <!-- Contact Form Section -->
+  {% section 'contact-form' %}
+
+  <!-- Additional Content Section -->
+  {% section 'richtext' %}
 </div>
