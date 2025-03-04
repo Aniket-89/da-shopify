@@ -5,8 +5,8 @@
     "bs-js": "cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js assets/vendor-bootstrap.bundle.min.js",
     "swiper": "cp node_modules/swiper/swiper-bundle.min.js assets/vendor-swiper.bundle.min.js && cp node_modules/swiper/swiper-bundle.min.css assets/vendor-swiper.bundle.min.css"
   },
-  "watch": { 
-    "bs-scss": { 
+  "watch": {
+    "bs-scss": {
       "patterns": [
         "src"
       ],
@@ -18,7 +18,7 @@
     "bootstrap": "^5.3.2",
     "swiper": "^11.0.6"
   },
-  "devDependencies": { 
+  "devDependencies": {
     "autoprefixer": "^10.4.17",
     "caniuse-lite": "^1.0.30001585",
     "eslint": "^8.56.0",
