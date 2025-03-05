@@ -1,212 +1,169 @@
 <section id="video-banner-{{ section.id }}" class="video-banner">
-    <div class="video-container">
-      {% if section.settings.video_source == 'shopify' and section.settings.banner_video != blank %}
-        <video 
-          class="video-bg lazy" 
-          data-src="{{ section.settings.banner_video | video_url }}"
-          autoplay 
-          loop 
-          muted 
-          playsinline
-          disablepictureinpicture
-          preload="none"
-        ></video>
-      {% elsif section.settings.video_source == 'youtube' and section.settings.youtube_url != blank %}
-        <iframe
-          class="video-bg lazy"
-          data-src="https://www.youtube.com/embed/{{ section.settings.youtube_url | split: 'v=' | last }}?autoplay=1&mute=1&loop=1&controls=0&playlist={{ section.settings.youtube_url | split: 'v=' | last }}"
-          frameborder="0"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      {% elsif section.settings.video_source == 'vimeo' and section.settings.vimeo_url != blank %}
-        <iframe
-          class="video-bg lazy"
-          data-src="https://player.vimeo.com/video/{{ section.settings.vimeo_url | split: '/' | last }}?autoplay=1&muted=1&loop=1&background=1"
-          frameborder="0"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      {% else %}
-        <div class="video-placeholder">No video selected</div>
-      {% endif %}
-    </div>
-  
-    <div class="overlay"></div>
-  
-    <div class="video-banner-content">
-      <h2 class="video-banner-subtitle">{{ section.settings.subtitle }}</h2>
-      <h1 class="video-banner-title">{{ section.settings.title }}</h1>
-      <p class="video-banner-description">{{ section.settings.description }}</p>
-    </div>
-  </section>
-  
-  {% schema %}
-  {
-    "name": "Lazy Loading Video Banner",
-    "settings": [
-      {
-        "type": "select",
-        "id": "video_source",
-        "label": "Video Source",
-        "options": [
-          { "value": "shopify", "label": "Upload MP4 (Shopify Files)" },
-          { "value": "youtube", "label": "YouTube URL" },
-          { "value": "vimeo", "label": "Vimeo URL" }
-        ],
-        "default": "shopify"
-      },
-      {
-        "type": "video",
-        "id": "banner_video",
-        "label": "Upload MP4 Video",
-        "info": "Upload an MP4 file in Shopify's Settings > Files."
-      },
-      {
-        "type": "text",
-        "id": "youtube_url",
-        "label": "YouTube Video URL",
-        "info": "Paste the full YouTube video link."
-      },
-      {
-        "type": "text",
-        "id": "vimeo_url",
-        "label": "Vimeo Video URL",
-        "info": "Paste the full Vimeo video link."
-      },
-      {
-        "type": "text",
-        "id": "subtitle",
-        "label": "Subtitle",
-        "default": "Your Subtitle Here"
-      },
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Title",
-        "default": "Welcome to Our Store"
-      },
-      {
-        "type": "textarea",
-        "id": "description",
-        "label": "Description",
-        "default": "Shop the latest collections with amazing discounts."
-      }
-    ],
-    "presets": [
-      {
-        "name": "Lazy Loading Video Banner",
-        "category": "Video"
-      }
-    ]
+  <div class="video-container">
+    {% if section.settings.video_source == 'shopify' and section.settings.banner_video != blank %}
+      {{ section.settings.banner_video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}
+    {% elsif section.settings.video_source == 'youtube' and section.settings.youtube_url != blank %}
+      <iframe
+        class="video-bg"
+        src="https://www.youtube.com/embed/{{ section.settings.youtube_url | split: 'v=' | last }}?autoplay=1&mute=1&loop=1&controls=0&playlist={{ section.settings.youtube_url | split: 'v=' | last }}"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    {% elsif section.settings.video_source == 'vimeo' and section.settings.vimeo_url != blank %}
+      <iframe
+        class="video-bg"
+        src="https://player.vimeo.com/video/{{ section.settings.vimeo_url | split: '/' | last }}?autoplay=1&muted=1&loop=1&background=1"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    {% else %}
+      <div class="video-placeholder">No video selected</div>
+    {% endif %}
+  </div>
+
+  <div class="overlay"></div>
+
+  <div class="video-banner-content">
+    <h2 class="video-banner-subtitle">{{ section.settings.subtitle }}</h2>
+    <h1 class="video-banner-title">{{ section.settings.title }}</h1>
+    <p class="video-banner-description">{{ section.settings.description }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Video Banner",
+  "settings": [
+    {
+      "type": "select",
+      "id": "video_source",
+      "label": "Video Source",
+      "options": [
+        { "value": "shopify", "label": "Upload MP4 (Shopify Files)" },
+        { "value": "youtube", "label": "YouTube URL" },
+        { "value": "vimeo", "label": "Vimeo URL" }
+      ],
+      "default": "shopify"
+    },
+    {
+      "type": "video",
+      "id": "banner_video",
+      "label": "Upload MP4 Video",
+      "info": "Upload an MP4 file in Shopify's Settings > Files."
+    },
+    {
+      "type": "text",
+      "id": "youtube_url",
+      "label": "YouTube Video URL",
+      "info": "Paste the full YouTube video link."
+    },
+    {
+      "type": "text",
+      "id": "vimeo_url",
+      "label": "Vimeo Video URL",
+      "info": "Paste the full Vimeo video link."
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Your Subtitle Here"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Shop the latest collections with amazing discounts."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Banner",
+      "category": "Video"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .video-banner {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
   }
-  {% endschema %}
-  
-  <style>
-    .video-banner {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
-  
-    .video-container video,
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  
-    .video-placeholder {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
-    }
-  
-    .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-    }
-  
-    .video-banner-content {
-      position: relative;
-      z-index: 2;
-      max-width: 80%;
-    }
-  
-    .video-banner-title {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-  
-    .video-banner-subtitle {
-      font-size: 1.5rem;
-      opacity: 0.8;
-    }
-  
-    .video-banner-description {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      opacity: 0.9;
-    }
-  </style>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const lazyVideos = document.querySelectorAll('.lazy');
-      
-      if ('IntersectionObserver' in window) {
-        let lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              let lazyVideo = entry.target;
-              
-              if (lazyVideo.tagName === 'VIDEO') {
-                if (lazyVideo.dataset.src) {
-                  lazyVideo.src = lazyVideo.dataset.src;
-                  lazyVideo.load();
-                }
-                lazyVideo.play().catch(error => {
-                  console.log('Autoplay was prevented:', error);
-                });
-              } else if (lazyVideo.tagName === 'IFRAME') {
-                lazyVideo.src = lazyVideo.dataset.src;
-              }
-              
-              lazyVideo.classList.remove('lazy');
-              lazyVideoObserver.unobserve(lazyVideo);
-            }
-          });
-        });
-  
-        lazyVideos.forEach(function(lazyVideo) {
-          lazyVideoObserver.observe(lazyVideo);
-        });
-      } else {
-        // Fallback for browsers that don't support IntersectionObserver
-        lazyVideos.forEach(function(lazyVideo) {
-          if (lazyVideo.tagName === 'VIDEO' && lazyVideo.dataset.src) {
-            lazyVideo.src = lazyVideo.dataset.src;
-          } else if (lazyVideo.tagName === 'IFRAME') {
-            lazyVideo.src = lazyVideo.dataset.src;
-          }
-        });
-      }
-    });
-  </script>
+
+  {% comment %} .video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  } {% endcomment %}
+
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-placeholder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+  }
+
+  .overlay {
+    {% comment %} position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); {% endcomment %}
+  }
+
+  .video-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 80%;
+  }
+
+  .video-banner-title {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .video-banner-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .video-banner-description {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.9;
+  }
+</style>
