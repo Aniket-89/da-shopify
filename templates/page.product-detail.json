@@ -30,7 +30,7 @@
       "type": "video-banner",
       "settings": {
         "video_source": "shopify",
-        "banner_video": "shopify://files/videos/water-proof.mp4",
+        "banner_video": "shopify://files/videos/Drone_animation.mp4",
         "youtube_url": "",
         "vimeo_url": "",
         "subtitle": "",
@@ -41,9 +41,9 @@
     "image_banner_eFKrEU": {
       "type": "image-banner",
       "settings": {
-        "banner_image": "shopify://shop_images/campstool-2.jpg",
+        "banner_image": "shopify://shop_images/spray-banner.png",
         "overlay_color": "#000000",
-        "overlay_opacity": 50,
+        "overlay_opacity": 0,
         "subtitle": "Your Subtitle Here",
         "title": "Welcome to Our Store",
         "description": "Explore our latest collections",
@@ -59,23 +59,25 @@
       "type": "video-banner",
       "settings": {
         "video_source": "shopify",
+        "banner_video": "shopify://files/videos/spray.mp4",
         "youtube_url": "",
         "vimeo_url": "",
-        "subtitle": "Your Subtitle Here",
-        "title": "Welcome to Our Store",
-        "description": "Shop the latest collections with amazing discounts."
+        "subtitle": "",
+        "title": "",
+        "description": ""
       }
     },
     "image_banner_jPRiJN": {
       "type": "image-banner",
       "settings": {
+        "banner_image": "shopify://shop_images/night-drone.png",
         "overlay_color": "#000000",
-        "overlay_opacity": 50,
-        "subtitle": "Your Subtitle Here",
+        "overlay_opacity": 0,
+        "subtitle": "",
         "title": "Welcome to Our Store",
         "description": "Explore our latest collections",
         "text_alignment": "center",
-        "text_color": "text-body",
+        "text_color": "text-white",
         "button_label": "Shop Now",
         "button_link": "",
         "button_bg_color": "#ffffff",
@@ -86,11 +88,12 @@
       "type": "video-banner",
       "settings": {
         "video_source": "shopify",
+        "banner_video": "shopify://files/videos/night-video.mp4",
         "youtube_url": "",
         "vimeo_url": "",
-        "subtitle": "Your Subtitle Here",
-        "title": "Welcome to Our Store",
-        "description": "Shop the latest collections with amazing discounts."
+        "subtitle": "",
+        "title": "",
+        "description": ""
       }
     },
     "image_banner_DzYBYh": {
