@@ -1,23 +1,12 @@
-{% comment %}Image Banner Section with Desktop and Mobile Images{% endcomment %}
+{% comment %}Image Banner Section with Customizable Overlay{% endcomment %}
 <section id="image-banner-{{ section.id }}" class="image-banner">
     <div class="image-container">
       {% if section.settings.banner_image != blank %}
-        {%- comment %} Desktop Image {% endcomment -%}
-        <picture>
-          {% if section.settings.mobile_banner_image != blank %}
-            {{ section.settings.mobile_banner_image | image_url: width: 768 | image_tag: 
-              class: 'banner-image banner-image--mobile', 
-              loading: 'lazy', 
-              alt: section.settings.mobile_banner_image.alt | escape 
-            }}
-          {% endif %}
-          
-          {{ section.settings.banner_image | image_url: width: 2000 | image_tag: 
-            class: 'banner-image banner-image--desktop', 
-            loading: 'lazy', 
-            alt: section.settings.banner_image.alt | escape 
-          }}
-        </picture>
+        {{ section.settings.banner_image | image_url: width: 2000 | image_tag: 
+          class: 'banner-image', 
+          loading: 'lazy', 
+          alt: section.settings.banner_image.alt | escape 
+        }}
       {% else %}
         <div class="image-placeholder">No image selected</div>
       {% endif %}
@@ -30,8 +19,8 @@
   
     <div class="image-banner-content {{ section.settings.text_color }}" style="text-align: {{ section.settings.text_alignment }};">
       <h2 class="image-banner-subtitle">{{ section.settings.subtitle }}</h2>
-      <h1 class="image-banner-title">{{ section.settings.title }}</h1>
-      <p class="image-banner-description">{{ section.settings.description }}</p>
+      <h1 class="image-banner-title" style="color: {{ section.settings.text_color }}">{{ section.settings.title }}</h1>
+      <p class="image-banner-description"  style="color: {{ section.settings.text_color }}">{{ section.settings.description }}</p>
       
       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
         <a href="{{ section.settings.button_link }}" class="image-banner-button" style="
@@ -50,22 +39,12 @@
     "settings": [
       {
         "type": "header",
-        "content": "Desktop Image"
+        "content": "Image Settings"
       },
       {
         "type": "image_picker",
         "id": "banner_image",
-        "label": "Desktop Banner Image"
-      },
-      {
-        "type": "header",
-        "content": "Mobile Image (Optional)"
-      },
-      {
-        "type": "image_picker",
-        "id": "mobile_banner_image",
-        "label": "Mobile Banner Image",
-        "info": "If not selected, desktop image will be used on mobile"
+        "label": "Banner Image"
       },
       {
         "type": "header",
@@ -124,13 +103,40 @@
         "type": "select",
         "id": "text_color",
         "label": "Text Color",
+        "default": "text-body",
         "options": [
           { "value": "text-primary", "label": "Primary" },
           { "value": "text-secondary", "label": "Secondary" },
           { "value": "text-body", "label": "Body" },
           { "value": "text-white", "label": "White" }
         ],
-        "default": "center"
+      },
+      {
+        "type": "header",
+        "content": "Button Settings"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "Shop Now"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "color",
+        "id": "button_bg_color",
+        "label": "Button Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button Text Color",
+        "default": "#000000"
       }
     ],
     "presets": [
@@ -166,17 +172,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-  
-    .banner-image--desktop {
-      display: block;
-    }
-  
-    .banner-image--mobile {
-      display: none;
     }
   
     .image-placeholder {
@@ -199,8 +194,9 @@
   
     .image-banner-content {
       position: absolute;
-      top:20%;
       z-index: 2;
+      top: 10px;
+      left: 12px;
       max-width: 80%;
       padding: 0 20px;
     }
@@ -222,15 +218,20 @@
       margin-bottom: 20px;
     }
   
+    .image-banner-button {
+      display: inline-block;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: opacity 0.3s;
+    }
+  
+    .image-banner-button:hover {
+      opacity: 0.8;
+    }
+  
     @media screen and (max-width: 768px) {
-  
-      .banner-image--desktop {
-        display: none;
-      }
-  
-      .banner-image--mobile {
-        display: block;
-      }
+
   
       .image-banner-title {
         font-size: 2rem;
