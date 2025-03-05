@@ -16,7 +16,7 @@
         "overlay_color": "#000000",
         "overlay_opacity": 0,
         "subtitle": "",
-        "title": "P10 <span class=\"text-primary\">PRO</span> Agriculture Drone",
+        "title": "P10 PRO Agriculture Drone",
         "description": "Made for Indian conditions.",
         "text_alignment": "left",
         "text_color": "text-body",
@@ -33,9 +33,9 @@
         "banner_video": "shopify://files/videos/water-proof.mp4",
         "youtube_url": "",
         "vimeo_url": "",
-        "subtitle": "Your Subtitle Here",
-        "title": "Welcome to Our Store",
-        "description": "Shop the latest collections with amazing discounts."
+        "subtitle": "",
+        "title": "",
+        "description": ""
       }
     },
     "image_banner_eFKrEU": {
