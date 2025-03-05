@@ -97,18 +97,6 @@
     "product_card_img_carousel_dark": false,
     "cart_img_border": "img-thumbnail",
     "sections": {
-      "product-banner": {
-        "type": "product-banner",
-        "custom_css": [
-          ".banner-bg-video {z-index: 10;}"
-        ],
-        "settings": {
-          "banner_image": "shopify://shop_images/hudderton-backpack_dc8afb13-448b-49d9-a042-5a163a97de8f.jpg",
-          "subtitle": "Your Subtitle Here",
-          "title": "Welcome to Our Store",
-          "description": "Shop the latest collections with amazing discounts."
-        }
-      },
       "video-banner": {
         "type": "video-banner",
         "settings": {
