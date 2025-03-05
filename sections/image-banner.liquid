@@ -17,7 +17,7 @@
       opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     "></div>
   
-    <div class="image-banner-content" style="text-align: {{ section.settings.text_alignment }};">
+    <div class="image-banner-content" style="text-align: {{ section.settings.text_alignment }}; color: {{ section.settings.text_color }}">
       <h2 class="image-banner-subtitle">{{ section.settings.subtitle }}</h2>
       <h1 class="image-banner-title">{{ section.settings.title }}</h1>
       <p class="image-banner-description">{{ section.settings.description }}</p>
@@ -96,6 +96,18 @@
           { "value": "left", "label": "Left" },
           { "value": "center", "label": "Center" },
           { "value": "right", "label": "Right" }
+        ],
+        "default": "center"
+      },
+      {
+        "type": "select",
+        "id": "text_color",
+        "label": "Text Color",
+        "options": [
+          { "value": "text-primary", "label": "Primary" },
+          { "value": "text-secondary", "label": "Secondary" },
+          { "value": "text-body", "label": "Body" },
+          { "value": "text-white", "label": "White" }
         ],
         "default": "center"
       },
