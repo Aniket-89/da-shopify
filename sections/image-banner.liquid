@@ -17,10 +17,10 @@
       opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     "></div>
   
-    <div class="image-banner-content" style="text-align: {{ section.settings.text_alignment }}; color: {{ section.settings.text_color }}">
-      <h2 class="image-banner-subtitle">{{ section.settings.subtitle }}</h2>
-      <h1 class="image-banner-title">{{ section.settings.title }}</h1>
-      <p class="image-banner-description">{{ section.settings.description }}</p>
+    <div class="image-banner-content" style="text-align: {{ section.settings.text_alignment }};">
+      <h2 class="image-banner-subtitle" style="color: {{ section.settings.text_color }}">{{ section.settings.subtitle }}</h2>
+      <h1 class="image-banner-title" style="color: {{ section.settings.text_color }}">{{ section.settings.title }}</h1>
+      <p class="image-banner-description"  style="color: {{ section.settings.text_color }}">{{ section.settings.description }}</p>
       
       {% if section.settings.button_label != blank and section.settings.button_link != blank %}
         <a href="{{ section.settings.button_link }}" class="image-banner-button" style="
@@ -103,13 +103,13 @@
         "type": "select",
         "id": "text_color",
         "label": "Text Color",
+        "default": "text-body",
         "options": [
           { "value": "text-primary", "label": "Primary" },
           { "value": "text-secondary", "label": "Secondary" },
           { "value": "text-body", "label": "Body" },
           { "value": "text-white", "label": "White" }
         ],
-        "default": "text-primary"
       },
       {
         "type": "header",
