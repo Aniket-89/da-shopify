@@ -453,7 +453,7 @@ header {
 }
 
 #agri-hero-1 {
-    background-image: url('{{ 'agri-drone-banner.png' | asset_url }}');
+    background-image: url({{ 'agri-drone-banner.png' | asset_url }});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
