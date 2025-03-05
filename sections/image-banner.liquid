@@ -1,6 +1,31 @@
-<div id="image-banner-{{ section.id }}" class="image-banner" style="text-align: center; margin: 20px 0;">
-    <img src="{{ section.settings.image | asset_url }}" alt="{{ section.settings.alt_text }}" style="width: 100%; height: auto;">
-  </div>
+{% comment %}Image Banner Section{% endcomment %}
+<section id="image-banner-{{ section.id }}" class="image-banner">
+    <div class="image-container">
+      {% if section.settings.banner_image != blank %}
+        {{ section.settings.banner_image | image_url: width: 2000 | image_tag: 
+          class: 'banner-image', 
+          loading: 'lazy', 
+          alt: section.settings.banner_image.alt | escape 
+        }}
+      {% else %}
+        <div class="image-placeholder">No image selected</div>
+      {% endif %}
+    </div>
+  
+    <div class="overlay"></div>
+  
+    <div class="image-banner-content">
+      <h2 class="image-banner-subtitle">{{ section.settings.subtitle }}</h2>
+      <h1 class="image-banner-title">{{ section.settings.title }}</h1>
+      <p class="image-banner-description">{{ section.settings.description }}</p>
+      
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="image-banner-button">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </section>
   
   {% schema %}
   {
@@ -8,14 +33,129 @@
     "settings": [
       {
         "type": "image_picker",
-        "id": "image",
-        "label": "Image"
+        "id": "banner_image",
+        "label": "Banner Image"
       },
       {
         "type": "text",
-        "id": "alt_text",
-        "label": "Alt Text"
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "Your Subtitle Here"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Welcome to Our Store"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Explore our latest collections"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "Shop Now"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image Banner",
+        "category": "Image"
       }
     ]
   }
   {% endschema %}
+  
+  <style>
+    .image-banner {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+  
+    .image-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+    .image-placeholder {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+    }
+  
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+  
+    .image-banner-content {
+      position: relative;
+      z-index: 2;
+      max-width: 80%;
+    }
+  
+    .image-banner-title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+  
+    .image-banner-subtitle {
+      font-size: 1.5rem;
+      opacity: 0.8;
+      margin-bottom: 10px;
+    }
+  
+    .image-banner-description {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+  
+    .image-banner-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+  
+    .image-banner-button:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
