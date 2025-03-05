@@ -2,13 +2,20 @@
 
 {{ 'style.css' | asset_url | stylesheet_tag }}
 <script defer src="https://cdn.tailwindcss.com"></script>
+<style>
+  #agri-hero-1 {
+    background-image: url('{{ 'agri-drone-banner.png' | asset_url }}')
+  }
+  
+</style>
+
 
 
 <main class="bg-black w-full">
   <section id="drone-hero-section" class="relative w-full">
     <div class="">
 
-      <div id="agri-hero-1" class="panel relative w-full" style="background-image: url('{{ 'agri-drone-banner.png' | asset_url }}')">
+      <div id="agri-hero-1" class="panel relative w-full">
         <div class="grid w-full h-full">
 
           <div id="hero-1-content" class="text-gray-600 lg:space-y-2" data-aos="fade-right">
@@ -99,7 +106,7 @@
       </div>
     </div>
 
-    <div class="w-full spray-banner relative">
+    <div class="w-full spray-banner relative" style="background-image: url('{{ 'spray' }}')">
       <div class="lg:w-8/12 absolute 3xl:top-[10%] lg:top-[5%] top-[4%] left-[5%] 3xl:left-[15%] lg:left-[10%] text-white mx-auto">
         <h3 class="relative lg:text-2xl 3xl:text-3xl text-black shadow-text" data-aos="slide-down">
           <span class="italic text-xl lg:text-3xl font-semibold">P10</span>
