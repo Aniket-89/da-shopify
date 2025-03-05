@@ -12,12 +12,18 @@
     "image_banner_XBF7LK": {
       "type": "image-banner",
       "settings": {
-        "banner_image": "shopify://shop_images/DawsonTrolley_Moss_Front_6cca3dc3-51d3-4205-a1e1-ed5d9a03e181.jpg",
+        "banner_image": "shopify://shop_images/agri-drone-banner.png",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
         "subtitle": "Your Subtitle Here",
         "title": "Welcome to Our Store",
         "description": "Explore our latest collections",
+        "text_alignment": "left",
+        "text_color": "text-body",
         "button_label": "Shop Now",
-        "button_link": ""
+        "button_link": "",
+        "button_bg_color": "#ffffff",
+        "button_text_color": "#000000"
       }
     },
     "video_banner_wNRWzE": {
@@ -36,11 +42,17 @@
       "type": "image-banner",
       "settings": {
         "banner_image": "shopify://shop_images/campstool-2.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
         "subtitle": "Your Subtitle Here",
         "title": "Welcome to Our Store",
         "description": "Explore our latest collections",
+        "text_alignment": "center",
+        "text_color": "text-body",
         "button_label": "Shop Now",
-        "button_link": ""
+        "button_link": "",
+        "button_bg_color": "#ffffff",
+        "button_text_color": "#000000"
       }
     },
     "video_banner_FKd9ib": {
@@ -57,11 +69,17 @@
     "image_banner_jPRiJN": {
       "type": "image-banner",
       "settings": {
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
         "subtitle": "Your Subtitle Here",
         "title": "Welcome to Our Store",
         "description": "Explore our latest collections",
+        "text_alignment": "center",
+        "text_color": "text-body",
         "button_label": "Shop Now",
-        "button_link": ""
+        "button_link": "",
+        "button_bg_color": "#ffffff",
+        "button_text_color": "#000000"
       }
     },
     "video_banner_KDcY6A": {
@@ -79,11 +97,17 @@
       "type": "image-banner",
       "settings": {
         "banner_image": "shopify://shop_images/agri-banner4.jpg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
         "subtitle": "",
         "title": "",
         "description": "",
+        "text_alignment": "center",
+        "text_color": "text-body",
         "button_label": "Shop",
-        "button_link": ""
+        "button_link": "",
+        "button_bg_color": "#ffffff",
+        "button_text_color": "#000000"
       }
     },
     "cfc6ff50-e3a5-4219-8350-f2db73f829c8": {
