@@ -18,22 +18,22 @@ window.addEventListener("load", function () {
   }
 
   .spray-banner {
-    background-image: url('{{ 'spray-banner.png' | asset_url }}')
+    background-image: url('{{ 'spray-banner.png' | file_url }}')
   }
 
   #agri-spray-feature-container {
-    background-image: url('{{ 'night-drone.png' | asset_url }}')
+    background-image: url('{{ 'night-drone.png' | file_url }}')
 
   }
 
   .tick-icon::before {
-    content: url("{{ 'tick-square.png' | file_url }}");
+    content: url("{{ 'tick-square.png' | asset_url }}");
   }
 
 
   @media screen and (max-width:1100px) {
     #agri-hero-1 {
-    background-image: url('{{ 'agri-hero1-m.png' | asset_url }}')
+    background-image: url('{{ 'agri-hero1-m.png' | file_url }}')
   }
   }
 </style>
@@ -208,11 +208,11 @@ window.addEventListener("load", function () {
 
           <div class="flex flex-col lg:flex-row w-full lg:w-2/3 lg:gap-2 gap-12 text-center">
             <div class="lg:w-1/2 w-full space-y-2" data-aos="fade-up" data-aos-delay="200">
-              <img src="{{ 'waterproof4.png' | asset_url }}" alt="" class="lazy w-full h-full object-cover"/>
+              <img src="{{ 'waterproof4.png' | file_url }}" alt="" class="lazy w-full h-full object-cover"/>
               <p class="text-white lg:text-base text-sm">Durable Rugged Frame.</p>
             </div>
             <div class="lg:w-1/2 space-y-2" data-aos="fade-up" data-aos-delay="250">
-              <img src="{{ 'waterproof3.png' | asset_url }}" alt="" class="lazy w-full h-full object-cover"/>
+              <img src="{{ 'waterproof3.png' | file_url }}" alt="" class="lazy w-full h-full object-cover"/>
               <p class="text-white lg:text-base text-sm">Exceptionally Water Resistance.</p>
             </div>
           </div>
@@ -237,23 +237,23 @@ window.addEventListener("load", function () {
             </div>
           </div>
           <div class="portablity-image-container lg:w-1/2" data-aos="fade-left" data-aos-delay="200">
-            <img src="{{ 'farmer1.png' | asset_url }}" alt="farmer taking out drone from the bag" class="lazy object-cover object-bottom w-full">
+            <img src="{{ 'farmer1.png' | file_url }}" alt="farmer taking out drone from the bag" class="lazy object-cover object-bottom w-full">
           </div>
         </div>
 
         <div class="my-16 px-2">
           <ul class="flex flex-wrap justify-between w-full">
-            <li class="rounded-md overflow-hidden w-[49%] mb-1 lg:w-[24%]"><img src="{{ 'portable1.png' | asset_url }}" alt="" class="lazy w-full object-cover aspect-1"></li>
-            <li class="rounded-md overflow-hidden w-[49%] mb-1 lg:w-[24%]"><img src="{{ 'portable2_5-4.png' | asset_url }}" alt="" class="lazy w-full object-cover aspect-1"></li>
-            <li class="rounded-md overflow-hidden w-[49%] mb-1 lg:w-[24%]"><img src="{{ 'portable3.png' | asset_url }}" alt="" class="lazy w-full object-cover aspect-1"></li>
-            <li class="rounded-md overflow-hidden w-[49%] mb-1 lg:w-[24%]"><img src="{{ 'portable4.png' | asset_url }}" alt="" class="lazy w-full object-cover aspect-1"></li>
+            <li class="rounded-md overflow-hidden w-[49%] mb-1 lg:w-[24%]"><img src="{{ 'portable1.png' | file_url }}" alt="" class="lazy w-full object-cover aspect-1"></li>
+            <li class="rounded-md overflow-hidden w-[49%] mb-1 lg:w-[24%]"><img src="{{ 'portable2_5-4.png' | file_url }}" alt="" class="lazy w-full object-cover aspect-1"></li>
+            <li class="rounded-md overflow-hidden w-[49%] mb-1 lg:w-[24%]"><img src="{{ 'portable3.png' | file_url }}" alt="" class="lazy w-full object-cover aspect-1"></li>
+            <li class="rounded-md overflow-hidden w-[49%] mb-1 lg:w-[24%]"><img src="{{ 'portable4.png' | file_url }}" alt="" class="lazy w-full object-cover aspect-1"></li>
           </ul>
         </div>
       </div>
 
       <div class="lg:h-[90vh] h-[25vh] flex bg-white justify-center items-center w-full relative">
         <div class="absolute top-0 left-0 w-full h-auto">
-          <img src="{{ 'comparison-drone.png' | asset_url }}" alt="" class="lazy object-cover w-full h-full">
+          <img src="{{ 'comparison-drone.png' | file_url }}" alt="" class="lazy object-cover w-full h-full">
         </div>
         <div class="absolute top-[45%] lg:top-[55%] left-[calc(50% - width/2)] flex flex-col items-center justify-center z-[1]">
           <div class="3xl:ml-40 lg:ml-32 ml-8" data-aos="flip-up">
@@ -281,7 +281,7 @@ window.addEventListener("load", function () {
               <p class="3xl:text-lg text-base"><span class="font-semibold">Warranty:</span> Enjoy peace of mind with our comprehensive 3-year warranty on all parts and services.</p>
             </div>
             <div class="portablity-image-container lg:w-[400px] 3xl:w-[600px] 3xl:h-[450px] lg:h-[320px] overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-              <img src="{{ 'drone-with-bag.png' | asset_url }}" alt="drone with the bag" class="lazy object-cover h-full w-full">
+              <img src="{{ 'drone-with-bag.png' | file_url }}" alt="drone with the bag" class="lazy object-cover h-full w-full">
             </div>
           </div>
         </div>
@@ -294,13 +294,13 @@ window.addEventListener("load", function () {
             <p class="lg:text-2xl text-xl">Agri specific mobile application</p>
           </div>
           <div class="portablity-image-container w-full lg:w-1/2" data-aos="slide-left" data-aos-delay="200">
-            <img src="{{ 'controller-app.png' | asset_url }}" alt="controller application" class="lazy object-cover w-full lg:rounded-[30px]">
+            <img src="{{ 'controller-app.png' | file_url }}" alt="controller application" class="lazy object-cover w-full lg:rounded-[30px]">
           </div>
         </div>
       </div>
 
       <div class="bg-white">
-        <img src="{{ 'agri-banner-4.png' | asset_url }}" alt="" class="lazy object-cover w-full">
+        <img src="{{ 'agri-banner-4.png' | file_url }}" alt="" class="lazy object-cover w-full">
       </div>
     </div>
   </section>
